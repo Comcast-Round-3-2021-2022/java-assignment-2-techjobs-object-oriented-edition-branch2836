@@ -30,8 +30,9 @@ public class PositionType {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PositionType that)) return false;
-        return id == that.id;
+        if (!(o instanceof PositionType)) return false;
+        PositionType positionType = (PositionType) o;
+        return id == positionType.getId();
     }
 
     @Override
