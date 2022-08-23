@@ -27,8 +27,6 @@ public class JobTest {
         Job testAllFields = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertTrue(testAllFields.getName().getClass().getSimpleName().equals("String"));
-
-
         assertTrue(testAllFields.getEmployer() instanceof Employer);
         assertTrue(testAllFields.getLocation() instanceof Location);
         assertTrue(testAllFields.getPositionType() instanceof PositionType);
@@ -57,8 +55,38 @@ public class JobTest {
     public void testToStringStartsAndEndsWithNewLine(){
         Job testToString= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertTrue(testToString.toString().charAt(0)== '\n'&& testToString.toString().charAt(testToString.toString().length() -1 ) == '\n');
 
+        assertEquals(testToString.toString().charAt(0), '\n' );
+        assertEquals(testToString.toString().charAt(testToString.toString().length() -1 ), '\n' );
     }
 
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job testLabels= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String testOutput = "\n"+
+        "ID: 1" + "\n"  +
+        "Name: Product tester" +"\n"+
+        "Employer: ACME" + "\n"+
+        "Location: Desert" + "\n"+
+        "Position Type: Quality control" + "\n"+
+        "Core Competency: Persistence" + "\n";
+
+    assertEquals(testLabels.toString(), testOutput);
+    }
+
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+          Job testLabels= new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+          String testEmptyOutput = "\n"+
+         "ID: 1" + "\n"  +
+          "Name: Product tester" +"\n"+
+         "Employer: Data not available" + "\n"+
+          "Location: Desert" + "\n"+
+          "Position Type: Quality control" + "\n"+
+          "Core Competency: Persistence" + "\n";
+
+            assertEquals(testLabels.toString(), testEmptyOutput);
+
+        }
 }

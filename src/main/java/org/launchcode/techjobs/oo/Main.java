@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertTrue;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -20,10 +22,11 @@ public class Main {
         String str = job1.getEmployer().getValue() ;
         System.out.println(job1.toString().charAt(job1.toString().length() -1) == '\n');
 
+        System.out.println(job1.toString());
 
-        for (obj : Job){
+        System.out.println("end test");
 
-        }
+
 
     }
 

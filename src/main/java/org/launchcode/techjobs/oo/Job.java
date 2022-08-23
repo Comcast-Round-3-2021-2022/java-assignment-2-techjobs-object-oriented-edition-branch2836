@@ -51,14 +51,44 @@ public class Job {
 
     @Override
     public String toString() {
-        return '\n' +
-                "ID: " + id + '\n' +
-                "Name: " + name + '\n' +
-                "Employer: " + employer +'\n' +
-                "Location: " + location +'\n' +
-                "PositionType: " + positionType +'\n' +
-                "CoreCompetency: " + coreCompetency +'\n'
-                ;
+
+//        return '\n' +
+//                "ID: " + id + '\n' +
+//                "Name: " + name + '\n' +
+//                "Employer: " + employer +'\n' +
+//                "Location: " + location +'\n' +
+//                "PositionType: " + positionType +'\n' +
+//                "CoreCompetency: " + coreCompetency +'\n'
+//                ;
+        String returnString = '\n' + "ID: " + id + '\n';
+        String tempString = new String();
+        if(name.equals("")){
+            returnString += "Name: " + "Data not available"  + '\n' ;
+        }else{
+            returnString += "Name: " + name + '\n' ;
+        }
+        if(employer.getValue().equals ("")){
+            returnString += "Employer: " + "Data not available"  + '\n' ;
+        }else{
+            returnString += "Employer: " + employer +'\n' ;
+        }
+        if(location.getValue().equals ("")){
+            returnString += "Location: " + "Data not available"  + '\n' ;
+        }else{
+            returnString += "Location: " + location +'\n' ;
+        }
+        if(positionType.getValue().equals ("")){
+            returnString += "Position Type: " + "Data not available"  + '\n' ;
+        }else{
+            returnString += "Position Type: " + positionType +'\n' ;
+        }
+        if(coreCompetency.getValue().equals ("")){
+            returnString += "Core Competency: " + "Data not available"  + '\n' ;
+        }else{
+            returnString += "Core Competency: " + coreCompetency +'\n';
+        }
+
+        return returnString;
     }
 
 
